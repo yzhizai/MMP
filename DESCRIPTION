@@ -1,10 +1,10 @@
 Package: MMP
 Type: Package
-Title: What the Package Does (Title Case)
+Title: This package is used to conduct the multi-modalities radiomics phenotype analysis based on MOVICS package.
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
+Author: Shaofeng Duan
+Maintainer: The package maintainer <18910063803@163.com>
+Description: This package uses UMAP to perform dimension reduction, and 10 multi-omics clustering algorithms to do clustering analysis.
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
 Encoding: UTF-8
