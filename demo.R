@@ -1,4 +1,5 @@
 library(tidyverse)
+library(Matrix)
 library(umap)
 library(MOVICS)
 library(class)
