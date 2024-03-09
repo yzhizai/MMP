@@ -1,3 +1,43 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# MMP
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of MMP is to ...
+
+## Installation
+
+You can install the development version of MMP from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("yzhizai/MMP")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(tidyverse)
+library(MOVICS)
+library(umap)
+library(class)
 library(MMP)
 
 flist <- c('feature_static_all.csv',
@@ -16,8 +56,9 @@ cmoic.clust <- clust_identify(clust.data[[1]])
 test.pred <- knn_train_test(cmoic.clust,
                clust.data.train = clust.data[[1]],
                clust.data.test = clust.data[[2]])
-
-src.info$Group <- test.pred
+src.info$Group <- 0
+src.info$Group[src.info$Source == 0] <- cmoic.clust$clust.res$clust
+src.info$Group[src.info$Source == 1] <- test.pred
 
 out.clust <- data.frame(samID = paste0('subj', 1:length(test.pred)),
                     clust = test.pred)
@@ -30,5 +71,4 @@ rownames(out.clust.validation) <- out.clust.validation$samID
 
 clust.data.2 <- clust.data[[2]]
 draw_Heatmap(clust.data.2, out.clust.validation, fig.name = 'Heatmap')
-
-
+```

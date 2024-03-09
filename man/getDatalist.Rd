@@ -4,12 +4,14 @@
 \alias{getDatalist}
 \title{Convert the file to the datalist}
 \usage{
-getDatalist(flist, idx)
+getDatalist(flist, idx.train, ex.col = NULL)
 }
 \arguments{
 \item{flist}{a vector containing the names of the feature files}
 
-\item{idx}{the indices of row to use.}
+\item{idx.train}{the indices to indicate the training data}
+
+\item{ex.col}{the indices to exclude the columns}
 }
 \value{
 a data list

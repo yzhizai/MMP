@@ -12,3 +12,7 @@ LazyData: true
 RoxygenNote: 7.2.3
 URL: https://github.com/yzhizai/MMP
 BugReports: https://github.com/yzhizai/MMP/issues
+Imports: 
+    class,
+    Matrix,
+    umap

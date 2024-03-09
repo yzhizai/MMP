@@ -7,23 +7,27 @@ library(class)
 
 #' Convert the file to the datalist
 #'
+#' @param idx.sel the indices to indicate the training data
+#' @param ex.col the indices to exclude the columns
 #' @param flist a vector containing the names of the feature files
-#' @param idx the indices of row to use.
 #'
 #' @return a data list
 #' @export
 #'
 #' @examples
-getDatalist <- function(flist, idx)
+getDatalist <- function(flist, idx.sel, ex.col = NULL)
 {
-  src.info <- read_csv(src.info.file)
   dt.list <- list()
   for(fname in flist)
   {
-    dt.i <- read_csv(fname) %>% select(-1)
+    dt.i <- read_csv(fname)
+    if(!is.null(ex.col))
+    {
+      dt.i <- dt.i %>% select(-ex.col)
+    }
     baseName <- str_replace(fname, '.csv', '')
 
-    dt.i.train <- dt.i[idx, ]
+    dt.i.train <- dt.i[idx.sel, ]
 
     dt.list[[baseName]] <- dt.i.train
   }
@@ -154,8 +158,8 @@ draw_Heatmap <- function(clust.data, out.clust, fig.name = 'Heatmap')
 {
   plotdata <- getStdiz(data       = clust.data,
                        halfwidth  = rep(2, times = length(clust.data)), # no truncation for mutation
-                       centerFlag = rep(T, times = legnth(clust.data)), # no center for mutation
-                       scaleFlag  = rep(T, times = legnth(clust.data))) # no scale for mutation
+                       centerFlag = rep(T, times = length(clust.data)), # no center for mutation
+                       scaleFlag  = rep(T, times = length(clust.data))) # no scale for mutation
 
   a.col   <- c("#00FF00", "#008000", "#000000", "#800000", "#FF0000")
   b.col <- c("#0074FE", "#96EBF9", "#FEE900", "#F00003")
