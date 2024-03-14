@@ -1,0 +1,10 @@
+library(devtools)
+use_git()
+library(MMP)
+version
+library(devtools)
+use_git()
+library(devtools)
+use_git()
+library(MOVICS)
+install_github('xlucpu/MOVICS')

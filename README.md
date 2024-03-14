@@ -6,7 +6,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of MMP is to …
+The goal of MMP is to conduct the multi-modalities radiomics phenotype
+analysis, which mostly based on the MOVICS package.
 
 ## Installation
 
